@@ -1,0 +1,25 @@
+type AuthPayload {
+    message: String
+    access_token: String
+    expires_at: DateTimeTz
+    token_type: String
+    user: User
+}
+
+extend type Mutation {
+    createUser(input: CreateUserInput! @spread): AuthPayload! @field(resolver: "App\\GraphQL\\Mutations\\Auth\\SignUp")
+    loginUser(input: LoginInput @spread): AuthPayload! @field(resolver: "App\\GraphQL\\Mutations\\Auth\\Login")
+    logout: BasicResponse! @field(resolver: "App\\GraphQL\\Mutations\\Auth\\Logout") @guard
+}
+
+input CreateUserInput {
+    name: String!
+    email: String! @rules(apply: ["unique:users,email"])
+    password: String! @rules(apply: ["required", "min:8"])
+}
+
+input LoginInput {
+    email: String!
+    password: String!
+    device: String
+}
