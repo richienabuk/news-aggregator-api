@@ -9,5 +9,5 @@ GraphQL API for News aggregation from multiple sources with option for user pref
 - Visit route `/graphiql` on domain for documentation and playground
 - Connect frontend app
 
-## Credits
+## Built by
 - **[Imo-owo Nabuk](https://github.com/richienabuk)**
