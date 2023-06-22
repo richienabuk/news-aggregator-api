@@ -1,0 +1,9 @@
+type Author {
+    id: ID!
+    name: String!
+    website: String
+}
+
+extend type Query {
+    authors: [Author!]! @all
+}

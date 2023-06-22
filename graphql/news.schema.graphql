@@ -1,0 +1,20 @@
+type News {
+    id: ID!
+    title: String!
+    url: String!
+    description: String
+    preview_image: String
+    published_at: DateTime!
+    category: Category! @belongsTo
+    source: Source! @belongsTo
+    authors: [Author!]! @belongsToMany
+}
+
+extend type Query {
+    news(
+        category_id: ID @where(operator: "=")
+        source_id: ID @where(operator: "=")
+        published_at: DateRange @whereBetween
+        order_by: [OrderByClause!] @orderBy
+    ): [News!]! @paginate(defaultCount: 10)
+}

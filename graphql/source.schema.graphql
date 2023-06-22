@@ -1,0 +1,9 @@
+type Source {
+    id: ID!
+    name: String!
+    website: String
+}
+
+extend type Query {
+    sources: [Source!]! @all
+}

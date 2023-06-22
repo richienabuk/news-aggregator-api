@@ -14,5 +14,24 @@ type BasicResponse {
     message: String!
 }
 
+input DateRange {
+    from: DateTimeTz!
+    to: DateTimeTz!
+}
+
+input OrderByClause {
+    column: String!
+    order: SortOrder!
+}
+
+enum SortOrder {
+    ASC
+    DESC
+}
+
 #import user.schema.graphql
 #import auth.schema.graphql
+#import source.schema.graphql
+#import category.schema.graphql
+#import author.schema.graphql
+#import news.schema.graphql
