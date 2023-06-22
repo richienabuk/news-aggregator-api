@@ -35,3 +35,4 @@ enum SortOrder {
 #import category.schema.graphql
 #import author.schema.graphql
 #import news.schema.graphql
+#import user_preference.schema.graphql

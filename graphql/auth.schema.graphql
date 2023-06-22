@@ -14,7 +14,7 @@ extend type Mutation {
 
 input CreateUserInput {
     name: String!
-    email: String! @rules(apply: ["unique:users,email"])
+    email: String! @rules(apply: ["email", "unique:users,email"])
     password: String! @rules(apply: ["required", "min:8"])
 }
 
