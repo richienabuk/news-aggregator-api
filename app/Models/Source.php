@@ -10,4 +10,5 @@ class Source extends Model
     use HasFactory;
 
     public $timestamps = false;
+    protected $fillable = ['name', 'website'];
 }

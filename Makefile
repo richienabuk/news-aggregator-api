@@ -4,7 +4,7 @@ up start: ## Start docker containers
 sl: ## Start docker containers with logs
 	./vendor/bin/sail up
 
-down: ## Stop docker containers
+down stop: ## Stop docker containers
 	./vendor/bin/sail stop
 
 setup:
@@ -26,6 +26,9 @@ reseed: ## Reset and Seed DB
 
 seed: ## Seed DB
 	./vendor/bin/sail php artisan db:seed
+
+cron:
+	./vendor/bin/sail php artisan schedule:work
 
 rebuild:
 	./vendor/bin/sail build --no-cache && @make up

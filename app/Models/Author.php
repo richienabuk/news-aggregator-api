@@ -12,6 +12,8 @@ class Author extends Model
 
     public $timestamps = false;
 
+    protected $fillable = ['name', 'website'];
+
     public function news(): BelongsToMany
     {
         return $this->belongsToMany(News::class);
