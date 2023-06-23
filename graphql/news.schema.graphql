@@ -15,6 +15,8 @@ extend type Query {
         category_id: ID @where(operator: "=")
         source_id: ID @where(operator: "=")
         published_at: DateRange @whereBetween
+        search_term: String @builder(method: "App\\GraphQL\\Builders\\SearchNewsArticle")
+        personalized: Boolean @builder(method: "App\\GraphQL\\Builders\\PersonalizedNewsArticle")
         order_by: [OrderByClause!] @orderBy
     ): [News!]! @paginate(defaultCount: 10)
 }

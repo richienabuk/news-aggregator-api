@@ -4,5 +4,5 @@ type Category {
 }
 
 extend type Query {
-    categories: [Category!]! @all
+    categories(name: String @builder(method: "App\\GraphQL\\Builders\\NameFieldSearch")): [Category!]! @all
 }

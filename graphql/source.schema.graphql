@@ -5,5 +5,5 @@ type Source {
 }
 
 extend type Query {
-    sources: [Source!]! @all
+    sources(name: String @builder(method: "App\\GraphQL\\Builders\\NameFieldSearch")): [Source!]! @all
 }

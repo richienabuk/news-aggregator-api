@@ -5,5 +5,5 @@ type Author {
 }
 
 extend type Query {
-    authors: [Author!]! @all
+    authors(name: String @builder(method: "App\\GraphQL\\Builders\\NameFieldSearch")): [Author!]! @all
 }
