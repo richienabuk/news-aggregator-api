@@ -8,7 +8,7 @@ extend type Mutation {
     upsertUserPreference(input: UpsertUserPreferenceInput! @spread): UserPreference! @guard @upsert @inject(context: "user.id", name: "user_id")
 }
 
-input UpsertUserPreferenceInput @validator {
+input UpsertUserPreferenceInput {
     id: ID
     key: String!
     value: [String!]
